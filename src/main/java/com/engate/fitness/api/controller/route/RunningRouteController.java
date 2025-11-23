@@ -25,7 +25,10 @@ public class RunningRouteController {
     private final RunningRouteService service;
     private final RunningRouteMapper mapper;
 
-    public RunningRouteController(RunningRouteService service, RunningRouteMapper mapper) {
+    public RunningRouteController(
+            RunningRouteService service,
+            RunningRouteMapper mapper
+    ) {
         this.service = service;
         this.mapper = mapper;
     }
@@ -51,9 +54,17 @@ public class RunningRouteController {
     }
 
     @PutMapping("/{id}")
-    public RunningRouteResponse update(@PathVariable Long id, @RequestBody RunningRouteRequest request) {
+    public RunningRouteResponse update(
+            @PathVariable Long id,
+            @RequestBody RunningRouteRequest request
+    ) {
         RunningRoute route = mapper.toEntity(request);
-        return mapper.toResponse(service.update(id, route));
+        return mapper.toResponse(
+                service.update(
+                        id,
+                        route
+                )
+        );
     }
 
     @DeleteMapping("/{id}")

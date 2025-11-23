@@ -38,16 +38,22 @@ public class TrainingPost {
 
     @ElementCollection
     @CollectionTable(
-            name = "training_post_photos",
-            joinColumns = @JoinColumn(name = "training_post_id")
+            name = "training_post_photos", joinColumns = @JoinColumn(name = "training_post_id")
     )
     @Column(name = "photo_url", nullable = false)
     private List<String> photoUrls = new ArrayList<>();
 
     protected TrainingPost() {
+
     }
 
-    public TrainingPost(String userName, String role, String description, String avatarUrl, List<String> photoUrls) {
+    public TrainingPost(
+            String userName,
+            String role,
+            String description,
+            String avatarUrl,
+            List<String> photoUrls
+    ) {
         this.userName = userName;
         this.role = role;
         this.description = description;
